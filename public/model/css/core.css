@@ -1,0 +1,156 @@
+body{
+	min-height: 1500px;
+	font-family: JOSEFIN SLAB;
+	font-size: 20px;
+	background:#F5F5F5;
+}
+.board{
+	padding-top:100px;
+	height:500px;
+	width:100%;
+	border-bottom: 1px solid rgba(0,0,0,0.3);
+	background: #222;
+	z-index: -2;
+
+}
+
+
+.icon{
+	margin-left:50px;
+	margin-top:100px;
+	height:400px;
+	width:400px;
+	z-index: 9999;
+
+}
+
+
+.sticky{
+	height:100px;
+	width:100px;
+	display: block;
+	position:fixed;
+	top:-96px;
+}
+
+
+
+.hr {
+	z-index: -1;
+	margin-left:auto;
+	margin-right:auto;
+	width:95%;
+   display: block;
+   padding: 0;
+   margin: 8px auto;
+   height: 0;
+   max-height: 0;
+   font-size: 1px;
+   line-height: 0;
+   clear: both;
+   border: none;
+   border-top: 1px solid #aaaaaa;
+   border-bottom: 1px solid #ffffff;
+}
+
+
+
+/*Main content*/
+
+
+
+.notes{
+	display:inline-block;
+	max-width: 300px;
+	height:auto;
+	margin-right:10px;
+	margin-bottom:10px;
+	background:white;
+	padding:10px;
+	z-index: -1;
+
+}
+
+
+.notes img{
+	max-height: 200px;
+	max-width: 200px;
+}
+
+.notes .comment{
+	padding-left:10px;
+	margin-top: -50px;
+	position:absolute;
+	background:rgba(192,192,192,0.2);
+	width:90%;
+	display:none;
+	color:#FB6542;
+}
+.imgActive{
+	opacity: 0.5;
+}
+
+
+/*  Panel  */
+.banner{
+	display:block;
+	height:105px;
+	width:100%;
+	background: #EC583A;
+	padding-left:75%;
+
+}
+
+.bannerSticky{
+	top:0px;
+	display:block;
+	position:fixed;
+}
+
+#myPanel li.cus-list{
+	font-family:Lobster;
+	font-weight: 900;	
+	padding-top: 35px;
+	color:white;
+	height:105px;
+	border-right: 3px solid #FFA473;
+	margin:0px;
+	overflow: hidden;
+}
+
+#myPanel li.active{
+	color:#FFA473;
+	box-shadow: 0px 18px 59px 0px #FFA473;
+}
+.content{
+	margin-top:50px;
+	padding-top:50px;
+	z-index: -4px;
+}
+
+.panel{
+	display:none;
+	z-index: -3px;
+
+}
+.panel.active{
+	display:block;
+}
+
+
+/*About us*/
+.intro{
+	padding:20px;
+	height:auto;
+	width:100%;
+}
+.intro .headline{
+	width:100%;
+	font-weight: 1000;
+	font-size:50px;
+	font-family: indie flower;
+}
+
+.intro p.para{
+	text-indent: 50px;
+}
