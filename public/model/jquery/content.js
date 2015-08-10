@@ -6,7 +6,6 @@ $(document).ready(function(){
 			$(this).find('.comment').show().slideUp(2000);				
 		}
 		else{
-			console.log('here');
 		}
 
 	}).mouseleave(function(){
@@ -19,7 +18,6 @@ $(document).ready(function(){
 
 	$(window).scroll(function(){
 		if($(window).scrollTop() >= 500){
-			console.log('here');
 			$('.banner').addClass('bannerSticky');
 		}
 		else{

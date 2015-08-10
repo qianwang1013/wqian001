@@ -1,0 +1,58 @@
+<section data-ng-controller = "blog">
+	<div data-ng-init = "">
+		<div id = "blog">
+			<div class = "blogName">
+				blogName
+			</div>
+
+			<div class = "postTime">
+				posted on 12:00 by Qian Wang
+			</div>
+
+			<div class = "blogContent">
+			blogContent
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	           <fieldset>
+	                <div class="form-group">
+	                    <label class="control-label" for="headline">Headline</label>
+	                    <div class="controls">
+	                        <input type="text" data-ng-model="blogName" name="blogName" id="blogName" class="form-control" placeholder="Name" required />
+	                    </div>
+	                </div>
+	                <div class="form-group">
+	                    <label class="control-label">Tags</label>
+	                    <div class="controls">
+	                        <input type="text" data-ng-model="blogTag" name="blogTag" id="blogTag" class="form-control" placeholder="tags" required />
+	                    </div>
+	                </div>  
+					<label class="control-label" for="content">content</label>
+					<div class="controls">
+						<div>
+							<textarea data-ng-model="blogContent" name="blogContent"  id="blogContent" class="form-control" cols="30" rows="10" placeholder="Your content"></textarea>
+						</div>
+					</div>	           
+	            </fieldset>
+	       	    <button type="button" class="btn btn-primary" data-ng-click = "create()">Create</button>
+
+</section>
