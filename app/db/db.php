@@ -9,7 +9,6 @@ class Db{
 		$this->conn = new DbConnect($servername, $username, $password, $dbname);
 		$this->tableName = $tableName;
 		$this->statement = $statement;
-		var_dump($this->statement);
 	}
 
 	public function add(){
@@ -37,13 +36,14 @@ class Db{
 	public function listAll(){
 		$sql = 'SELECT * FROM '.$this->tableName;
 		$sqlResult = $this->conn->query($sql);
+		$result = array();
 		if($sqlResult && $sqlResult->num_rows > 0){
-			$result = array();
 		    while ($row = $sqlResult->fetch_assoc()) {
 				array_push($result, $row); 
 		    }		
 		}
-		return json_encode($result);
+
+		return $result;
 	}
 
 	public function delete(){

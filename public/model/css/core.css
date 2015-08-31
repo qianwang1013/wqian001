@@ -218,3 +218,8 @@ body{
 	padding-top:40px;
 	text-indent: 50px;	
 }
+
+#blog .action-buttons{
+	float:right;
+	padding-left:10px;
+}

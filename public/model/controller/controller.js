@@ -7,7 +7,8 @@ app.controller('header', function($scope){
 });
 
 
-app.controller('blog',['$scope','$http', function($scope,$http){
+app.controller('blog',['$scope','$http', '$anchorScroll', '$location', function($scope,$http,$anchorScroll, $location){
+		$scope.isEditing =false;
 		$scope.create = function(){
 			var request = $http({
 			    method: 'post',
@@ -20,6 +21,13 @@ app.controller('blog',['$scope','$http', function($scope,$http){
 			    },
 			    headers: { 'Content-Type': 'application/json' }
 			});
+			request.success(function(data){
+				console.log(data);
+				$scope.list(); 
+				$scope.blogName = "";
+				$scope.blogTag = "";
+				$scope.blogContent = "";
+			});
 		};
 
 		$scope.list = function(){
@@ -30,7 +38,11 @@ app.controller('blog',['$scope','$http', function($scope,$http){
 			    	method: 'listAll',
 			    },
 			    headers: { 'Content-Type': 'application/json' }
-			});			
+			});		
+
+			request.success(function(data){
+				$scope.blogs = data; 
+			});
 		};
 
 		$scope.delete = function(id){
@@ -42,19 +54,47 @@ app.controller('blog',['$scope','$http', function($scope,$http){
 			    	blogID: id
 			    },
 			    headers: { 'Content-Type': 'application/json' }
-			});			
+			});		
+			request.success(function(data){
+				console.log(data);
+				$scope.list(); 
+			});				
 		};
 
-		$scope.edit = function(id){
+		$scope.anchorForm = function(blog){
+			$scope.isEditing = true;
+			console.log(blog);
+			$location.hash('form');
+	        $anchorScroll();
+	        $scope.blogID = blog.blogID
+			$scope.blogName = blog.blogName;
+			$scope.blogTag = blog.blogTag;
+			$scope.blogContent = blog.blogContent;
+		};
+
+		$scope.edit = function(){
 			var request = $http({
 			    method: 'post',
 			    url: 'app/db/init.php',
 			    data: {
 			    	method: 'edit',
-			    	blogID: id
+			    	blogID: $scope.blogID,
+			    	blogName: $scope.blogName,
+			    	blogTag: $scope.blogTag,
+			    	blogContent: $scope.blogContent
 			    },
 			    headers: { 'Content-Type': 'application/json' }
-			});			
+			});
+
+			request.success(function(data){
+				$scope.isEditing = false;
+				$location.hash('blog');
+		        $anchorScroll();	
+		        $scope.list();
+		        $scope.blogName = "";
+				$scope.blogTag = "";
+				$scope.blogContent = "";			
+			})			
 		};
 }]);
 

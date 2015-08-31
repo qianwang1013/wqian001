@@ -14,7 +14,6 @@ class DbConnect{
 		}
 
 		public function query($sql){
-			var_dump($sql);
 			$result = $this->conn->query($sql);
 			
 			if (!$result) {

@@ -1,39 +1,24 @@
-<section data-ng-controller = "blog">
-	<div data-ng-init = "">
+<section data-ng-controller = "blog" data-ng-init = "list()">
+
+	<div  data-ng-repeat = "blog in blogs">
 		<div id = "blog">
 			<div class = "blogName">
-				blogName
+				<span>{{blog.blogName}}</span>
 			</div>
-
+			<div class = "action-buttons">
+				<i class="btn fa fa-trash fa-lg" data-ng-click = "delete(blog.blogID)"></i>
+				<i class = "btn fa fa-pencil fa-lg" data-ng-click = "anchorForm(blog)"></i>
+			</div>
 			<div class = "postTime">
-				posted on 12:00 by Qian Wang
-			</div>
+				<span>{{blog.postTime}}</span>			
+				</div>
 
 			<div class = "blogContent">
-			blogContent
-			</div>
+				<span>{{blog.blogContent}}</span>			
+				</div>
 		</div>
 	</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	           <fieldset>
+	           <fieldset id = "form" name = "form">
 	                <div class="form-group">
 	                    <label class="control-label" for="headline">Headline</label>
 	                    <div class="controls">
@@ -53,6 +38,7 @@
 						</div>
 					</div>	           
 	            </fieldset>
-	       	    <button type="button" class="btn btn-primary" data-ng-click = "create()">Create</button>
+	       	    <button type="button" data-ng-hide = "isEditing"  class="btn btn-primary" data-ng-click = "create()">Create</button>
+	       	    <button type="button" data-ng-show = "isEditing" class="btn btn-primary" data-ng-click = "edit()">Edit</button>	       	    
 
 </section>

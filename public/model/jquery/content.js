@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$('.notes').mouseenter(function(){
+/*	$('.notes').mouseenter(function(){
 
 		if($(this).find('img')){
 			$(this).find('img').addClass('imgActive');
@@ -15,13 +15,22 @@ $(document).ready(function(){
 		}
 
 	});
-
+*/
 	$(window).scroll(function(){
-		if($(window).scrollTop() >= 500){
+		var $win = $(this);
+		if($win.scrollTop() >= 500){
 			$('.banner').addClass('bannerSticky');
+			if($win.width() < 1200){
+
+			}
+			
 		}
 		else{
 			$('.banner').removeClass('bannerSticky');
+		}
+
+		var toggleBar = function(){
+			
 		}
 	});
 
