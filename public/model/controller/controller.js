@@ -31,16 +31,10 @@ app.controller('blog',['$scope','$http', '$anchorScroll', '$location', function(
 		};
 
 		$scope.list = function(){
-			var request = $http({
-			    method: 'post',
-			    url: 'app/db/init.php',
-			    data: {
+			var request =  {
 			    	method: 'listAll',
-			    },
-			    headers: { 'Content-Type': 'application/json' }
-			});		
-
-			request.success(function(data){
+			    }	
+			$http.post('app/db/init.php', request).success(function(data){
 				$scope.blogs = data; 
 			});
 		};

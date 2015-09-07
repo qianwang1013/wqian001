@@ -1,6 +1,6 @@
 <section data-ng-controller = "blog" data-ng-init = "list()">
 
-	<div  data-ng-repeat = "blog in blogs">
+	<div  data-ng-repeat = "blog in blogs track by blog.blogID">
 		<div id = "blog">
 			<div class = "blogName">
 				<span>{{blog.blogName}}</span>

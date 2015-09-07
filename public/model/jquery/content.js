@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
 /*	$('.notes').mouseenter(function(){
 
 		if($(this).find('img')){
@@ -16,26 +17,44 @@ $(document).ready(function(){
 
 	});
 */
+	$('.fa-bars').click(function(){
+		var counter = 0; 
+		console.log('clicked');
+		$(this).toggleClass('bars-active');
+		$('#myPanel').toggle();
+	})
+
+	$(window).resize(function(){
+		var $win = $(this);
+		var $myPanel = $('#myPanel');
+		var $myList = $myPanel.find('li');
+		var $faBar = $('.fa-bars');
+		if($win.width() <= 1500){
+			$myPanel.removeClass('list-inline').addClass('ver-list').hide();
+			$faBar.show();	
+
+		}	
+		else{
+			$myPanel.removeClass('ver-list').addClass('list-inline').show();	
+			$faBar.hide();
+		}		
+	});
+
 	$(window).scroll(function(){
 		var $win = $(this);
 		if($win.scrollTop() >= 500){
 			$('.banner').addClass('bannerSticky');
-			if($win.width() < 1200){
-
-			}
-			
 		}
 		else{
 			$('.banner').removeClass('bannerSticky');
 		}
 
-		var toggleBar = function(){
-			
-		}
+
+
 	});
 
 	/*Pannel*/
-	$('.banner .cus-list').click(function(){
+	$('.banner li').click(function(){
 		var panelID  = $(this).attr('data-panel');
 		var $myPanel = $(this).closest('#myPanel');
 		//removing active
